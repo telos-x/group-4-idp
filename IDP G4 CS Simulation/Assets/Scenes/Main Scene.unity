@@ -1954,6 +1954,7 @@ GameObject:
   - component: {fileID: 718608769}
   - component: {fileID: 718608768}
   - component: {fileID: 718608767}
+  - component: {fileID: 718608770}
   m_Layer: 5
   m_Name: Microreactor Button
   m_TagString: Untagged
@@ -2024,7 +2025,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 718608768}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 718608770}
+        m_TargetAssemblyTypeName: PanelToggle, Assembly-CSharp
+        m_MethodName: OpenPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &718608768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2063,6 +2076,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718608765}
   m_CullTransparentMesh: 1
+--- !u!114 &718608770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718608765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2fdb1565873ee64083446d4f26d86fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel: {fileID: 258262672}
 --- !u!1 &742875955
 GameObject:
   m_ObjectHideFlags: 0
@@ -2363,6 +2389,7 @@ GameObject:
   - component: {fileID: 882720626}
   - component: {fileID: 882720625}
   - component: {fileID: 882720624}
+  - component: {fileID: 882720627}
   m_Layer: 5
   m_Name: SolarPanel Button
   m_TagString: Untagged
@@ -2433,7 +2460,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 882720625}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 882720627}
+        m_TargetAssemblyTypeName: PanelToggle, Assembly-CSharp
+        m_MethodName: OpenPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &882720625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2472,6 +2511,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 882720622}
   m_CullTransparentMesh: 1
+--- !u!114 &882720627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882720622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2fdb1565873ee64083446d4f26d86fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel: {fileID: 1752740895}
 --- !u!1 &939337465
 GameObject:
   m_ObjectHideFlags: 0
@@ -3580,6 +3632,7 @@ GameObject:
   - component: {fileID: 1484339942}
   - component: {fileID: 1484339941}
   - component: {fileID: 1484339940}
+  - component: {fileID: 1484339943}
   m_Layer: 5
   m_Name: Oxygen Button
   m_TagString: Untagged
@@ -3650,7 +3703,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1484339941}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1484339943}
+        m_TargetAssemblyTypeName: PanelToggle, Assembly-CSharp
+        m_MethodName: OpenPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1484339941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3689,6 +3754,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1484339938}
   m_CullTransparentMesh: 1
+--- !u!114 &1484339943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484339938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2fdb1565873ee64083446d4f26d86fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel: {fileID: 1032488330}
 --- !u!1 &1490300673
 GameObject:
   m_ObjectHideFlags: 0
@@ -4308,6 +4386,7 @@ GameObject:
   - component: {fileID: 1778312875}
   - component: {fileID: 1778312874}
   - component: {fileID: 1778312873}
+  - component: {fileID: 1778312876}
   m_Layer: 5
   m_Name: Water Button
   m_TagString: Untagged
@@ -4378,7 +4457,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1778312874}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1778312876}
+        m_TargetAssemblyTypeName: PanelToggle, Assembly-CSharp
+        m_MethodName: OpenPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1778312874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4417,6 +4508,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1778312871}
   m_CullTransparentMesh: 1
+--- !u!114 &1778312876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778312871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2fdb1565873ee64083446d4f26d86fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel: {fileID: 450868372}
 --- !u!1 &1815874500
 GameObject:
   m_ObjectHideFlags: 0
@@ -4675,6 +4779,7 @@ GameObject:
   - component: {fileID: 1873989812}
   - component: {fileID: 1873989811}
   - component: {fileID: 1873989810}
+  - component: {fileID: 1873989813}
   m_Layer: 5
   m_Name: Housing Button
   m_TagString: Untagged
@@ -4745,7 +4850,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1873989811}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1873989813}
+        m_TargetAssemblyTypeName: PanelToggle, Assembly-CSharp
+        m_MethodName: OpenPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1873989811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4784,6 +4901,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873989808}
   m_CullTransparentMesh: 1
+--- !u!114 &1873989813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873989808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2fdb1565873ee64083446d4f26d86fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel: {fileID: 1103730606}
 --- !u!1 &1876156060
 GameObject:
   m_ObjectHideFlags: 0
@@ -5349,6 +5479,7 @@ GameObject:
   - component: {fileID: 1933715295}
   - component: {fileID: 1933715294}
   - component: {fileID: 1933715293}
+  - component: {fileID: 1933715296}
   m_Layer: 5
   m_Name: Agriculture Button
   m_TagString: Untagged
@@ -5419,7 +5550,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1933715294}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1933715296}
+        m_TargetAssemblyTypeName: PanelToggle, Assembly-CSharp
+        m_MethodName: OpenPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1933715294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5458,6 +5601,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933715291}
   m_CullTransparentMesh: 1
+--- !u!114 &1933715296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933715291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2fdb1565873ee64083446d4f26d86fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel: {fileID: 1722524707}
 --- !u!1 &1984760583
 GameObject:
   m_ObjectHideFlags: 0
@@ -5509,6 +5665,7 @@ GameObject:
   - component: {fileID: 2045675121}
   - component: {fileID: 2045675120}
   - component: {fileID: 2045675119}
+  - component: {fileID: 2045675122}
   m_Layer: 5
   m_Name: Plus Ten
   m_TagString: Untagged
@@ -5579,7 +5736,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2045675120}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2045675122}
+        m_TargetAssemblyTypeName: PopulationManager, Assembly-CSharp
+        m_MethodName: ChangePopulation
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2045675120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5618,6 +5787,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2045675117}
   m_CullTransparentMesh: 1
+--- !u!114 &2045675122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045675117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 250fed5aaaac9de48aa183e10d1686aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  population: 50
 --- !u!1 &2068460803
 GameObject:
   m_ObjectHideFlags: 0
