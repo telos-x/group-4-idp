@@ -17,8 +17,8 @@ public class Window_Graph : MonoBehaviour{
     private RectTransform dashTemplateX;
     private RectTransform dashTemplateY;
     private RectTransform pointTemplate;
-    private RectTransform pointText;
-    private RectTransform pointImage;
+    private RectTransform pointTextTemplate;
+    private RectTransform pointImageTemplate;
 
 
     private void Awake()
@@ -29,11 +29,8 @@ public class Window_Graph : MonoBehaviour{
         dashTemplateX = graphContainer.Find("DashTemplateX").GetComponent<RectTransform>();
         dashTemplateY = graphContainer.Find("DashTemplateY").GetComponent<RectTransform>();
         pointTemplate = graphContainer.Find("PointTemplate").GetComponent<RectTransform>();
-        pointText = pointTemplate.Find("Text").GetComponent<RectTransform>();
-        pointImage = pointTemplate.Find("Image").GetComponent<RectTransform>();
-
-
-
+        pointTextTemplate = pointTemplate.Find("PointTextTemplate").GetComponent<RectTransform>();
+        pointImageTemplate = pointTemplate.Find("PointImageTemplate").GetComponent<RectTransform>();
 
         //CreateCircle(new Vector2(200, 200));
         //enter information from calculstions via serialzeField 
@@ -43,19 +40,30 @@ public class Window_Graph : MonoBehaviour{
 
     }
 
-    private GameObject CreateCircle(Vector2 anchoredPosition)
+    private RectTransform CreateCircle(Vector2 anchoredPosition)
     {
-        GameObject gameObject = new GameObject("Point", typeof(Image));
-        gameObject.transform.SetParent(graphContainer, false);
-        gameObject.GetComponent<Image>().sprite = circleSprite;
-        gameObject.GetComponent<Text>().text = anchoredPosition.ToString();
-        RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
-        rectTransform.anchoredPosition = anchoredPosition;
-        rectTransform.sizeDelta = new Vector2(11, 11);
-        rectTransform.anchorMin = new Vector2(0, 0);
-        rectTransform.anchorMax = new Vector2(0, 0);
+        RectTransform point = Instantiate(pointTemplate);
+        point.SetParent(graphContainer, false);
+        point.gameObject.SetActive(true);
+        point.anchoredPosition = anchoredPosition;
+        point.sizeDelta = new Vector2(11, 11);
+        point.anchorMin = new Vector2(0, 0);
+        point.anchorMax = new Vector2(0, 0);
 
-        return gameObject;
+        RectTransform pointImage = Instantiate(pointImageTemplate);
+        pointImage.SetParent(pointTemplate, false);
+        pointImage.gameObject.SetActive(true);
+        pointImage.GetComponent<Image>().sprite = circleSprite;
+        pointImage.sizeDelta = new Vector2(11, 11);
+        //pointImage.anchoredPosition = anchoredPosition;
+
+        //RectTransform pointText = Instantiate(pointTextTemplate);
+        //pointText.SetParent(pointTemplate, false);
+        //pointText.gameObject.SetActive(true);
+        //pointText.GetComponent<Text>().text = "(" + anchoredPosition.x.ToString() + ", " + anchoredPosition.y.ToString() + ")";
+        //pointText.anchoredPosition = new Vector2(anchoredPosition.x, anchoredPosition.y + 5.5f);
+
+        return point;
     }
 
     private void ShowGraph(List<int> xList, List<int> yList)
@@ -63,7 +71,7 @@ public class Window_Graph : MonoBehaviour{
         float graphWidth = graphContainer.sizeDelta.x;
         float graphHeight = graphContainer.sizeDelta.y;
 
-        GameObject lastCircleGameObject = null;
+        RectTransform lastCircleGameObject = null;
         for (int i = 0; i < yList.Count; i++)
         {
             //x position would also need to be based off this value list
@@ -71,12 +79,12 @@ public class Window_Graph : MonoBehaviour{
             float yPosition = (yList[i] / yMax) * graphHeight;
 
             //GameObject circleGameObject = CreateCircle(new Vector2(xPosition, yPosition));
-            GameObject circleGameObject = CreateCircle(new Vector2(xPosition, yPosition));
+            RectTransform circleGameObject = CreateCircle(new Vector2(xPosition, yPosition));
 
             //Not the very first dot;
             if (lastCircleGameObject != null)
             {
-                CreateDotConnection(lastCircleGameObject.GetComponent<RectTransform>().anchoredPosition, circleGameObject.GetComponent<RectTransform>().anchoredPosition);
+                CreateDotConnection(lastCircleGameObject.anchoredPosition, circleGameObject.anchoredPosition);
             }
 
             //updates current circle to be the last circle to the next one
