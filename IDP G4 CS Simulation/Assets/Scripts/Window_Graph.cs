@@ -40,7 +40,8 @@ public class Window_Graph : MonoBehaviour{
 
     }
 
-    private RectTransform CreateCircle(Vector2 anchoredPosition)
+    //Code Altered from CodeMonkey: Modified by Conan Enari
+    private RectTransform CreateCircle(Vector2 anchoredPosition, int xVal, int yVal)
     {
         RectTransform point = Instantiate(pointTemplate);
         point.SetParent(graphContainer, false);
@@ -51,17 +52,26 @@ public class Window_Graph : MonoBehaviour{
         point.anchorMax = new Vector2(0, 0);
 
         RectTransform pointImage = Instantiate(pointImageTemplate);
-        pointImage.SetParent(pointTemplate, false);
+        pointImage.SetParent(point, false);
         pointImage.gameObject.SetActive(true);
         pointImage.GetComponent<Image>().sprite = circleSprite;
         pointImage.sizeDelta = new Vector2(11, 11);
-        //pointImage.anchoredPosition = anchoredPosition;
 
-        //RectTransform pointText = Instantiate(pointTextTemplate);
-        //pointText.SetParent(pointTemplate, false);
-        //pointText.gameObject.SetActive(true);
-        //pointText.GetComponent<Text>().text = "(" + anchoredPosition.x.ToString() + ", " + anchoredPosition.y.ToString() + ")";
-        //pointText.anchoredPosition = new Vector2(anchoredPosition.x, anchoredPosition.y + 5.5f);
+        RectTransform pointText = Instantiate(pointTextTemplate);
+        pointText.SetParent(point, false);
+        pointText.gameObject.SetActive(true);
+
+        pointText.GetComponent<Text>().text = "(" + xVal + ", " + yVal + ")";
+        Debug.Log("(" + xVal + ", " + (yVal + 10f) + ")");
+
+        if(yVal + 10f > yMax)
+        {
+            pointText.anchoredPosition = new Vector2(pointText.anchoredPosition.x, pointText.anchoredPosition.y - 30f);
+        }
+        else
+        {
+            pointText.anchoredPosition = new Vector2(pointText.anchoredPosition.x, pointText.anchoredPosition.y + 15f);
+        }
 
         return point;
     }
@@ -70,26 +80,6 @@ public class Window_Graph : MonoBehaviour{
     {
         float graphWidth = graphContainer.sizeDelta.x;
         float graphHeight = graphContainer.sizeDelta.y;
-
-        RectTransform lastCircleGameObject = null;
-        for (int i = 0; i < yList.Count; i++)
-        {
-            //x position would also need to be based off this value list
-            float xPosition = (xList[i] / xMax) * graphWidth;
-            float yPosition = (yList[i] / yMax) * graphHeight;
-
-            //GameObject circleGameObject = CreateCircle(new Vector2(xPosition, yPosition));
-            RectTransform circleGameObject = CreateCircle(new Vector2(xPosition, yPosition));
-
-            //Not the very first dot;
-            if (lastCircleGameObject != null)
-            {
-                CreateDotConnection(lastCircleGameObject.anchoredPosition, circleGameObject.anchoredPosition);
-            }
-
-            //updates current circle to be the last circle to the next one
-            lastCircleGameObject = circleGameObject;
-        }
 
         for (int i = 0; i <= xInterval; i++)
         {
@@ -126,6 +116,26 @@ public class Window_Graph : MonoBehaviour{
             dashY.SetParent(graphContainer, false);
             dashY.gameObject.SetActive(true);
             dashY.anchoredPosition = new Vector2(-4f, (normalizedValue * graphHeight));
+        }
+
+        RectTransform lastCircleGameObject = null;
+        for (int i = 0; i < yList.Count; i++)
+        {
+            //x position would also need to be based off this value list
+            float xPosition = (xList[i] / xMax) * graphWidth;
+            float yPosition = (yList[i] / yMax) * graphHeight;
+
+            //GameObject circleGameObject = CreateCircle(new Vector2(xPosition, yPosition));
+            RectTransform circleGameObject = CreateCircle(new Vector2(xPosition, yPosition), xList[i], yList[i]);
+
+            //Not the very first dot;
+            if (lastCircleGameObject != null)
+            {
+                CreateDotConnection(lastCircleGameObject.anchoredPosition, circleGameObject.anchoredPosition);
+            }
+
+            //updates current circle to be the last circle to the next one
+            lastCircleGameObject = circleGameObject;     
         }
     }
 
