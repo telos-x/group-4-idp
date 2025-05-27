@@ -9,7 +9,7 @@ public class Window_Graph : MonoBehaviour{
     [SerializeField] private float xInterval;
     [SerializeField] private int yInterval;
     [SerializeField] private float xMax;
-    [SerializeField] private float yMax; 
+    [SerializeField] private float yMax;
 
     private RectTransform graphContainer;
     private RectTransform labelTemplateX;
