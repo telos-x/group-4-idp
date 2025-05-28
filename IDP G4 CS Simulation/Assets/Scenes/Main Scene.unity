@@ -442,8 +442,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &151931700
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   dustSim: {fileID: 0}
@@ -463,6 +466,9 @@ MonoBehaviour:
   - 350
 --- !u!1 &171673526
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -475,6 +481,7 @@ GameObject:
   m_Component:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - component: {fileID: 151931701}
   - component: {fileID: 151931703}
   - component: {fileID: 151931702}
@@ -483,11 +490,16 @@ GameObject:
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   - component: {fileID: 171673527}
   - component: {fileID: 171673528}
   m_Layer: 0
   m_Name: Research Management
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -496,6 +508,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 --- !u!224 &151931701
@@ -508,10 +521,15 @@ Transform:
 --- !u!4 &171673527
 Transform:
 >>>>>>> Stashed changes
+=======
+--- !u!4 &171673527
+Transform:
+>>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_GameObject: {fileID: 151931700}
@@ -531,6 +549,8 @@ Transform:
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   m_GameObject: {fileID: 171673526}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -542,6 +562,9 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &171673528
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -550,6 +573,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_GameObject: {fileID: 151931700}
@@ -905,6 +929,8 @@ CanvasRenderer:
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   m_GameObject: {fileID: 171673526}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -912,6 +938,9 @@ CanvasRenderer:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -3276,6 +3305,7 @@ CanvasRenderer:
   m_CullTransparentMesh: 1
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &1067023368
 GameObject:
   m_ObjectHideFlags: 0
@@ -3443,6 +3473,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067389418}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -5282,6 +5314,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &1890214317
 GameObject:
   m_ObjectHideFlags: 0
@@ -5326,11 +5359,15 @@ RectTransform:
 =======
 --- !u!114 &1881393072
 >>>>>>> Stashed changes
+=======
+--- !u!114 &1881393072
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_GameObject: {fileID: 1890214317}
@@ -5565,6 +5602,8 @@ CanvasRenderer:
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   m_GameObject: {fileID: 1881393070}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -5572,6 +5611,9 @@ CanvasRenderer:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
