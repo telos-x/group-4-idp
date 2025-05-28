@@ -27,9 +27,9 @@ public class MartianTimeManager : MonoBehaviour
     // internal clock (Martian seconds since start)
     private double _elapsedMartianSeconds = 0.0;
 
-    public float GetMartianSeconds()
+    public double GetMartianSeconds()
     {
-        return (float)_elapsedMartianSeconds;
+        return _elapsedMartianSeconds;
     }
     public float GetCurrentHour()
     {

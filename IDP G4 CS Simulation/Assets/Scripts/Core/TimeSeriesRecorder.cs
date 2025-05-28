@@ -34,10 +34,20 @@ public class TimeSeriesRecorder : MonoBehaviour
     private List<PowerRecord> _records = new List<PowerRecord>();
     private double _nextRecordTime;
 
+    void Awake()
+    {
+        if (timeKeeper == null)
+        {
+            timeKeeper = GetComponent<MartianTimeManager>();
+        }
+    }
+    
+    /*
     void OnEnable() => MartianTimeManager.Instance.OnTimeTick += OnTimeTick;
     void OnDisable() => MartianTimeManager.Instance.OnTimeTick -= OnTimeTick;
+    */
 
-    private void OnTimeTick(double martianSec)
+    private void OnTimeTick()
     {
         martianSec = timeKeeper.GetMartianSeconds();
         if (martianSec < _nextRecordTime) return;
