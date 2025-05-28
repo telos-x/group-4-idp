@@ -441,8 +441,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &151931700
 =======
+=======
+>>>>>>> Stashed changes
   dustSim: {fileID: 0}
   arrayArea: 100
   peakIrradianceByMonth:
@@ -459,6 +462,9 @@ MonoBehaviour:
   - 250
   - 350
 --- !u!1 &171673526
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,16 +474,22 @@ GameObject:
   serializedVersion: 6
   m_Component:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - component: {fileID: 151931701}
   - component: {fileID: 151931703}
   - component: {fileID: 151931702}
   m_Layer: 5
   m_Name: Text (TMP)
 =======
+=======
+>>>>>>> Stashed changes
   - component: {fileID: 171673527}
   - component: {fileID: 171673528}
   m_Layer: 0
   m_Name: Research Management
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,8 +497,13 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!224 &151931701
 RectTransform:
+=======
+--- !u!4 &171673527
+Transform:
+>>>>>>> Stashed changes
 =======
 --- !u!4 &171673527
 Transform:
@@ -495,6 +512,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_GameObject: {fileID: 151931700}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -511,6 +529,8 @@ Transform:
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &151931702
 =======
+=======
+>>>>>>> Stashed changes
   m_GameObject: {fileID: 171673526}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -521,12 +541,16 @@ Transform:
   m_Father: {fileID: 1984760584}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &171673528
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_GameObject: {fileID: 151931700}
   m_Enabled: 1
@@ -879,12 +903,17 @@ CanvasRenderer:
   m_GameObject: {fileID: 256100383}
   m_CullTransparentMesh: 1
 =======
+=======
+>>>>>>> Stashed changes
   m_GameObject: {fileID: 171673526}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a379674d9d1910d4cad7bde263ea6255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &258262672
 GameObject:
@@ -3246,6 +3275,7 @@ CanvasRenderer:
   m_GameObject: {fileID: 1032488330}
   m_CullTransparentMesh: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &1067023368
 GameObject:
   m_ObjectHideFlags: 0
@@ -3413,6 +3443,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067389418}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!1 &1103730606
@@ -5249,6 +5281,7 @@ Transform:
   m_Father: {fileID: 1984760584}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &1890214317
 GameObject:
   m_ObjectHideFlags: 0
@@ -5290,11 +5323,15 @@ RectTransform:
 =======
 --- !u!114 &1881393072
 >>>>>>> Stashed changes
+=======
+--- !u!114 &1881393072
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_GameObject: {fileID: 1890214317}
   m_Enabled: 1
@@ -5526,12 +5563,17 @@ CanvasRenderer:
   m_GameObject: {fileID: 1926449534}
   m_CullTransparentMesh: 1
 =======
+=======
+>>>>>>> Stashed changes
   m_GameObject: {fileID: 1881393070}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef2b72b0e73576a4383e56da44264141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &1926983213
 GameObject:
