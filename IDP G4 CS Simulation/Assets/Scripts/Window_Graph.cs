@@ -1,10 +1,10 @@
 using System;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using CodeMonkey.Utils;
-using NUnit.Framework;
 
 public class Window_Graph : MonoBehaviour {
 
@@ -37,10 +37,12 @@ public class Window_Graph : MonoBehaviour {
     private float graphHeight;
 
     // Cached values
+    private List<List<int>> lastXYLists;
     private List<int> xList;
     private List<int> yList;
 
-    public TextAsset textAssetData;
+    //public TextAsset textAssetData;
+    public string filename;
 
     private void Awake()
     {
@@ -58,11 +60,18 @@ public class Window_Graph : MonoBehaviour {
         yLabelList = new List<RectTransform>();
         xList = new List<int>();
         yList = new List<int>();
+
+        lastXYLists = new List<List<int>>();
+        
         gameObjectList = new List<GameObject>();
         graphVisualObjectList = new List<IgraphVisualObject>();
 
+        // filename = Application.dataPath + "/Scripts/IDPGroup4Data.csv";
+        filename = "Assets/Scripts/IDPGroup4Data.csv";
+
+
         // ReadCSV(out xList, out yList);
-        ReadCSV();
+        lastXYLists = ReadCSV();
         //enter information from calculstions via import csv
         // xList = new List<int>() { 5, 10, 15, 17, 19, 24, 28, 35, 64, 76, 81, 90, 123, 134, 199 };
         // yList = new List<int>() { 5, 98, 56, 130, 29, 17, 15, 30, 109, 199, 187, 79, 150, 170, 10 };
@@ -85,16 +94,30 @@ public class Window_Graph : MonoBehaviour {
         // List<int> yList2 = new List<int>() { 10, 98, 56, 130, 29, 17, 35, 40, 112, 186, 100, 79, 150, 180};
         // ShowGraph(xList2, yList2);
 
-        // int xvalue = 5;
-        // int yvalue = 5;
-
         // FunctionPeriodic.Create(() =>
         // {
-        //     ReadCSV();
         //     UpdateValue(0, xvalue, yvalue);
+        //     WriteCSV();
+
         //     xvalue++;
         //     yvalue++;
         // }, .01f);
+    }
+
+    void Update()
+    {
+        if(lastXYLists[0].Equals(xList) && lastXYLists[1].Equals(yList))
+        {
+            //Update Lists
+            lastXYLists = ReadCSV();
+        }
+        else 
+        {   
+            for(int i = 0; i < lastXYLists[0].Count; i++)
+            {
+                UpdateValue(i, xList[i], yList[i]);
+            }
+        }
     }
 
     private void ShowGraph(List<int> xList, List<int> yList, IgraphVisual graphVisual)
@@ -213,8 +236,16 @@ public class Window_Graph : MonoBehaviour {
         /*Debug.Log("Before " + xList[index].ToString());
         Debug.Log("Before " + yList[index].ToString());*/
 
-        xList[index] = newXVal;
-        yList[index] = newYVal;
+        if(index < xList.Count)
+        {
+            xList[index] = newXVal;
+            yList[index] = newYVal;
+        }
+        else
+        {
+            xList.Add(newXVal);
+            yList.Add(newYVal);
+        }
 
         /*Debug.Log("After " + xList[index].ToString());
         Debug.Log("After " + yList[index].ToString());*/
@@ -557,21 +588,72 @@ public class Window_Graph : MonoBehaviour {
             tooltipObject.SetActive(false);
     }
 
-    void ReadCSV()
+    List<List<int>> ReadCSV()
     {
         // List<int> tempXList = new List<int>();
         // List<int> tempYList = new List<int>();
         
-        string[] dataRows = textAssetData.text.Split(new string[] { "\n" }, StringSplitOptions.None);
+        Debug.Log(filename);
+        string csvData = File.ReadAllText(filename);
+
+        string[] lines = csvData.Split("\n");
+
         string[] individualData = new string[] {};
 
-        for (int i = 1; i < dataRows.Length; i++)
+        for (int i = 0; i < lines.Length - 1; i++)
         {
-            individualData = dataRows[i].Split(",");
+            individualData = lines[i].Split(",");
 
             xList.Add(int.Parse(individualData[0]));
             yList.Add(int.Parse(individualData[1]));
-        }
+        }   
 
+        return new List<List<int>>() {xList, yList};
     }
+
+    // void WriteCSV()
+    // {
+    //     try
+    //     {
+    //         if(xList.Count > 0 && yList.Count > 0 )
+    //         {
+    //             Debug.Log("Pass");
+    //             string csvData = File.ReadAllText(filename);
+
+    //             string[] lines = csvData.Split("\n");
+    //             string[] individualData = new string[] {};
+
+    //             for(int i = 0; i < xList.Count; i++)
+    //             {
+    //                 Debug.Log(xList[i].ToString() + ", " + yList[i].ToString());  
+
+    //                 individualData = lines[i].Split(",");
+    //                 if(individualData.Length > 0)
+    //                 {
+    //                     individualData[0] = xList[i].ToString();
+    //                     individualData[1] = yList[i].ToString();
+
+    //                     lines[i] = string.Join(",", individualData);
+    //                 }
+    //             }
+
+    //             string modifiedCSV = string.Join("\n", lines);
+    //             File.WriteAllText(filename, modifiedCSV);
+
+    //             Debug.Log("CSV file modified successfully!");
+    //         }
+    //         else
+    //         {
+    //             Debug.Log("CSV file error");
+    //         }
+    //     }
+    //     catch(FileNotFoundException)
+    //     {
+    //         Debug.LogError("CSV file not found: " + filename);
+    //     }
+    //     catch(Exception e)
+    //     {
+    //         Debug.LogError("Error modifying CSV file: " + filename);
+    //     }
+    // }
 }
