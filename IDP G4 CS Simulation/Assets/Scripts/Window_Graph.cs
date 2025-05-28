@@ -40,6 +40,8 @@ public class Window_Graph : MonoBehaviour {
     private List<int> xList;
     private List<int> yList;
 
+    public TextAsset textAssetData;
+
     private void Awake()
     {
         instance = this;
@@ -537,8 +539,21 @@ public class Window_Graph : MonoBehaviour {
         }
 
     private void HideToolTip()
-        {
+    {
             tooltipObject.SetActive(false);
+    }
+
+    void ReadCSV()
+    {
+        string[] dataRows = textAssetData.text.Split(new string[] { "\n" }, StringSplitOptions.None);
+        string[] individualData = new string[] {};
+
+        for (int i = 0; i < dataRows.Length; i++)
+        {
+            individualData = dataRows[i].Split(",");
+            xList[i] = int.Parse(individualData[0]);
+            yList[i] = int.Parse(individualData[1]);
         }
 
+    }
 }
