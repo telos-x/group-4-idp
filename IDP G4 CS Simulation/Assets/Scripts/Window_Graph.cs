@@ -56,12 +56,26 @@ public class Window_Graph : MonoBehaviour {
 
         xLabelList = new List<RectTransform>();
         yLabelList = new List<RectTransform>();
+        xList = new List<int>();
+        yList = new List<int>();
         gameObjectList = new List<GameObject>();
         graphVisualObjectList = new List<IgraphVisualObject>();
 
+        // ReadCSV(out xList, out yList);
+        ReadCSV();
         //enter information from calculstions via import csv
-        xList = new List<int>() { 5, 10, 15, 17, 19, 24, 28, 35, 64, 76, 81, 90, 123, 134, 199 };
-        yList = new List<int>() { 5, 98, 56, 130, 29, 17, 15, 30, 109, 199, 187, 79, 150, 170, 10 };
+        // xList = new List<int>() { 5, 10, 15, 17, 19, 24, 28, 35, 64, 76, 81, 90, 123, 134, 199 };
+        // yList = new List<int>() { 5, 98, 56, 130, 29, 17, 15, 30, 109, 199, 187, 79, 150, 170, 10 };
+
+        // foreach(int i in xList)
+        // {
+        //     Debug.Log(i);
+        // }
+
+        // foreach(int i in yList)
+        // {
+        //     Debug.Log(i);
+        // }
 
         IgraphVisual graphVisual = new LineGraphVisual(graphContainer, PointSprite, Color.yellow, new Color(255, 255, 0, .25f), 15);
 
@@ -71,15 +85,16 @@ public class Window_Graph : MonoBehaviour {
         // List<int> yList2 = new List<int>() { 10, 98, 56, 130, 29, 17, 35, 40, 112, 186, 100, 79, 150, 180};
         // ShowGraph(xList2, yList2);
 
-        int xvalue = 5;
-        int yvalue = 5;
+        // int xvalue = 5;
+        // int yvalue = 5;
 
-        FunctionPeriodic.Create(() =>
-        {
-            UpdateValue(0, xvalue, yvalue);
-            xvalue++;
-            yvalue++;
-        }, .01f);
+        // FunctionPeriodic.Create(() =>
+        // {
+        //     ReadCSV();
+        //     UpdateValue(0, xvalue, yvalue);
+        //     xvalue++;
+        //     yvalue++;
+        // }, .01f);
     }
 
     private void ShowGraph(List<int> xList, List<int> yList, IgraphVisual graphVisual)
@@ -538,21 +553,24 @@ public class Window_Graph : MonoBehaviour {
             tooltipObject.transform.SetAsLastSibling();
         }
 
-    private void HideToolTip()
-    {
+    private void HideToolTip() {
             tooltipObject.SetActive(false);
     }
 
     void ReadCSV()
     {
+        // List<int> tempXList = new List<int>();
+        // List<int> tempYList = new List<int>();
+        
         string[] dataRows = textAssetData.text.Split(new string[] { "\n" }, StringSplitOptions.None);
         string[] individualData = new string[] {};
 
-        for (int i = 0; i < dataRows.Length; i++)
+        for (int i = 1; i < dataRows.Length; i++)
         {
             individualData = dataRows[i].Split(",");
-            xList[i] = int.Parse(individualData[0]);
-            yList[i] = int.Parse(individualData[1]);
+
+            xList.Add(int.Parse(individualData[0]));
+            yList.Add(int.Parse(individualData[1]));
         }
 
     }

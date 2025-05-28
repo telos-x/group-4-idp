@@ -606,6 +606,7 @@ MonoBehaviour:
   yBuffer: 0.2
   xZeroStart: 1
   yZeroStart: 1
+  textAssetData: {fileID: 4900000, guid: 36673020c72c3694b80f9970fdabd354, type: 3}
 --- !u!1 &307139564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,7 +1047,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 778, y: -80}
+  m_AnchoredPosition: {x: 798, y: -80}
   m_SizeDelta: {x: 127.939514, y: 36.411102}
   m_Pivot: {x: 0.5, y: 0.49999833}
 --- !u!114 &1061820762
@@ -1456,7 +1457,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -80, y: 431}
+  m_AnchoredPosition: {x: -85, y: 451}
   m_SizeDelta: {x: 127.9395, y: 36.411102}
   m_Pivot: {x: 0.4999998, y: 0.4999999}
 --- !u!114 &1710670871
