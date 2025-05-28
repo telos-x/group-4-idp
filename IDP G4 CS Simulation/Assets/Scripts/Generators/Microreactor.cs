@@ -1,16 +1,18 @@
 using UnityEngine;
 
 public class Microreactor : MonoBehaviour, IPowerNode {
-    public float minOutput, maxOutput, rampRate;
-    private float currentOutput;
-    public float CurrentValue => currentOutput;
+    public InstantNuclearPower nuclearEstimator;
+    public float CurrentValue { get; set; }
     public int Priority => 1;
     public string NodeName => "Microreactor";
-    public void UpdateNode(float dt) {
-        float target = GridManager.Instance.RequiredCriticalLoad();
-        currentOutput = Mathf.MoveTowards(currentOutput, 
-                                          Mathf.Clamp(target, minOutput, maxOutput),
-                                          rampRate * dt);
+    public bool isEnabled{ get; set; } = true;
+    void Update()
+    {
+        UpdateNode(Time.deltaTime);
+    }
+    public void UpdateNode(float dt)
+    {
+        CurrentValue = isEnabled ? nuclearEstimator.InstantNP : 0f;
     }
 }
 

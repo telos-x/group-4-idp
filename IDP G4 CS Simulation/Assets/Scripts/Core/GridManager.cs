@@ -5,8 +5,12 @@ public class GridManager : MonoBehaviour
 {
     public static GridManager Instance { get; private set; }
     List<IPowerNode> nodes = new List<IPowerNode>();
-    public float storageSoC, storageCapacity;
+    public float storageSoC = 0f;
+    public float storageCapacity = 80000f; // in kWh, so 80 MWh, or 80 MW/time
 
+    public float supply;
+    public float demand;
+    public float net;
     void Awake() => Instance = this;
 
     void Start()
@@ -21,21 +25,24 @@ public class GridManager : MonoBehaviour
 
         // sum producers and consumers
         var producers = nodes.Where(n => n.CurrentValue > 0).ToList();
-        var consumers = nodes.Where(n => n.CurrentValue < 0)
-                             .OrderBy(n => n.Priority).ToList();
+        var consumers = nodes.Where(n => n.CurrentValue < 0).OrderBy(n => n.Priority).ToList();
 
-
-        float supply = producers.Sum(n => n.CurrentValue);
-        float demand = -consumers.Sum(n => n.CurrentValue);
-        float net = supply - demand;
+        supply = producers.Sum(n => n.CurrentValue);
+        demand = -consumers.Sum(n => n.CurrentValue);
+        net = supply - demand;
 
         // dispatch into storage if excess or draw from storage if deficit
         if (net > 0)
         {
             storageSoC = Mathf.Min(storageCapacity, storageSoC + net * dt);
+            if (storageSoC >= storageCapacity)
+            {
+                ReturnLoad(nodes, net);
+            }
         }
         else
         {
+            // draw from storage
             float needed = -net * dt;
             float drawn = Mathf.Min(needed, storageSoC);
             storageSoC -= drawn;
@@ -45,23 +52,43 @@ public class GridManager : MonoBehaviour
         // shed non‐critical loads if still in deficit
         if (net < 0)
         {
+            ShedLoad(nodes, net);
+        }
+
+        void ShedLoad(List<IPowerNode> nodes, float targetReduction)
+        {
             foreach (var c in consumers.Where(c => c.Priority > 1))
             {
                 // shed until net >= 0
-                float shedAmount = Mathf.Min(-c.CurrentValue, -net);
-                c.ShedLoad(shedAmount);
-                net += shedAmount;
+                if (c.isEnabled)
+                {
+                    float shedAmount = Mathf.Min(-c.CurrentValue, -net);
+                    net += shedAmount;
+                    c.isEnabled = false;
+                }
                 if (net >= 0) break;
             }
         }
 
-        // Record for graph
-        TimeSeriesRecorder.Record(supply, demand, storageSoC);
+        void ReturnLoad(List<IPowerNode> nodes, float recoverableAmount)
+        {
+            foreach (var c in consumers.Where(c => c.Priority < 11))
+            {
+                if (c.isEnabled == false)
+                {
+                    float returnAmount = Mathf.Min(c.CurrentValue, net);
+                    net -= returnAmount;
+                    c.isEnabled = true;
+                }  
+                if (net <= 0) break;
+            }
+        }
+
     }
 
     public float RequiredCriticalLoad()
     {
-        return nodes.Where(n => n.CurrentValue < 0 && n.Priority == 1)
+        return nodes.Where(n => n.CurrentValue < 0 && n.Priority <= 6)
                     .Sum(n => -n.CurrentValue);
     }
 }

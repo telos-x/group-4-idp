@@ -27,6 +27,10 @@ public class MartianTimeManager : MonoBehaviour
     // internal clock (Martian seconds since start)
     private double _elapsedMartianSeconds = 0.0;
 
+    public float GetMartianSeconds()
+    {
+        return (float)_elapsedMartianSeconds;
+    }
     public float GetCurrentHour()
     {
         return (float)_elapsedMartianSeconds / 3600f;
@@ -34,6 +38,7 @@ public class MartianTimeManager : MonoBehaviour
     // events
     public event Action<double> OnTimeTick;  // raw elapsed seconds
     public event Action         OnDateTick;  // sol/month/year/season changed
+    public event Action<float> OnTimeChanged;
 
     void Awake()
     {
@@ -42,11 +47,17 @@ public class MartianTimeManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    void Start()
+    {
+        OnTimeChanged?.Invoke(GetCurrentHour());
+    }
+
     void Update()
     {
         _elapsedMartianSeconds += Time.deltaTime * timeScale;
         OnTimeTick?.Invoke(_elapsedMartianSeconds);
         OnDateTick?.Invoke();
+        OnTimeChanged?.Invoke(GetCurrentHour());
     }
 
     // ——— Public read-only properties ———

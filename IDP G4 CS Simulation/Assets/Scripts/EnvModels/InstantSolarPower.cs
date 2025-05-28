@@ -55,7 +55,9 @@ public class InstantSolarPower : MonoBehaviour
 
         // 7) (Optional) Debug log once per simulated hour
         if (Mathf.Abs(lmst - Mathf.Round(lmst)) < 0.01f)
+        {
             Debug.Log($"[{lmst:F1}h] Month {month + 1}, P_inst ≈ {instantaneousPower:F0} W");
+        }
     }
 
     /// Returns relative exposure [0–1] given LMST (h), latitude (deg), and solar declination (deg).
