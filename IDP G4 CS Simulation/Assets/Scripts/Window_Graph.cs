@@ -42,7 +42,7 @@ public class Window_Graph : MonoBehaviour {
     private List<int> yList;
 
     //public TextAsset textAssetData;
-    public string filename;
+    private string filename;
 
     private void Awake()
     {
@@ -102,22 +102,6 @@ public class Window_Graph : MonoBehaviour {
         //     xvalue++;
         //     yvalue++;
         // }, .01f);
-    }
-
-    void Update()
-    {
-        if(lastXYLists[0].Equals(xList) && lastXYLists[1].Equals(yList))
-        {
-            //Update Lists
-            lastXYLists = ReadCSV();
-        }
-        else 
-        {   
-            for(int i = 0; i < lastXYLists[0].Count; i++)
-            {
-                UpdateValue(i, xList[i], yList[i]);
-            }
-        }
     }
 
     private void ShowGraph(List<int> xList, List<int> yList, IgraphVisual graphVisual)
@@ -232,6 +216,12 @@ public class Window_Graph : MonoBehaviour {
 
         float xMinBefore, xMaxBefore;
         CalculateScale(out xMinBefore, out xMaxBefore, xList, xBuffer, xZeroStart);
+        
+        float yMin, yMax;
+        CalculateScale(out yMin, out yMax, yList, yBuffer, yZeroStart);
+
+        float xMin, xMax;
+        CalculateScale(out xMin, out xMax, xList, xBuffer, xZeroStart);
 
         /*Debug.Log("Before " + xList[index].ToString());
         Debug.Log("Before " + yList[index].ToString());*/
@@ -250,11 +240,6 @@ public class Window_Graph : MonoBehaviour {
         /*Debug.Log("After " + xList[index].ToString());
         Debug.Log("After " + yList[index].ToString());*/
 
-        float yMin, yMax;
-        CalculateScale(out yMin, out yMax, yList, yBuffer, yZeroStart);
-
-        float xMin, xMax;
-        CalculateScale(out xMin, out xMax, xList, xBuffer, xZeroStart);
 
         /*Debug.Log("Before X: Min: " + xMinBefore + " Max: " + xMaxBefore);
         Debug.Log("Before Y: Min: " + yMinBefore + " Max: " + yMaxBefore);
@@ -294,7 +279,7 @@ public class Window_Graph : MonoBehaviour {
 
             for (int i = 0; i < yLabelList.Count; i++)
             {
-                if (yScaleChanged)
+                if (yScaleChanged || xScaleChanged)
                 {
                     float normalizedYValue = (i * 1f) / yLabelList.Count;
                     float normalizedXValue = (i * 1f) / xLabelList.Count;
@@ -588,7 +573,19 @@ public class Window_Graph : MonoBehaviour {
             tooltipObject.SetActive(false);
     }
 
-    List<List<int>> ReadCSV()
+    public void UpdateGraph()
+    {
+        lastXYLists = ReadCSV();
+
+        for (int i = 0; i < lastXYLists[0].Count; i++)
+        {
+            UpdateValue(i, xList[i], yList[i]);
+        }
+
+
+    }
+
+    private List<List<int>> ReadCSV()
     {
         // List<int> tempXList = new List<int>();
         // List<int> tempYList = new List<int>();
@@ -599,6 +596,9 @@ public class Window_Graph : MonoBehaviour {
         string[] lines = csvData.Split("\n");
 
         string[] individualData = new string[] {};
+
+        xList.Clear();
+        yList.Clear();
 
         for (int i = 0; i < lines.Length - 1; i++)
         {

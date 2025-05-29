@@ -3,45 +3,67 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using CodeMonkey.Utils;
+using NUnit.Framework;
 
 public class CSVUpdater : MonoBehaviour
 {
-    private string filename = "";
+    private string filename = "Assets/Scripts/IDPGroup4Data.csv";
 
-    private List<int> xList;
-    private List<int> yList;
-    
-    void Awake()
+    private List<int> xlist = new List<int>();
+    private List<int> ylist = new List<int>();
+    public void UpdateCSV()
     {
-        filename = "Assets/Scripts/IDPGroup4Data.csv";
-        
-        xList = new List<int>() { 5, 10, 15, 17, 19, 24, 28, 35, 64, 76, 81, 90, 123, 134, 199 };
-        yList = new List<int>() { 5, 98, 56, 130, 29, 17, 15, 30, 109, 199, 187, 79, 150, 170, 10 };
-    }
+        ReadCSV();
 
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
+        for (int i = 0; i < xlist.Count; i++)
         {
-            for(int i = 0; i < xList.Count; i++)
-            {
-                xList[i] = UnityEngine.Random.Range(0, 15 + (5 * i));
-                yList[i] = UnityEngine.Random.Range(0, 25 + (5 * i));
-            }
-
-            WriteCSV();
+            //xList[i] = UnityEngine.Random.Range(0, 15 + (5 * i));
+            xlist[i] = (0 + (i * 5));
+            ylist[i] = UnityEngine.Random.Range(0, 25 + (5 * i));
         }
-            
+        xlist.Sort();
+
+        Debug.Log(xlist.Count + " & " + ylist.Count);
+
+        WriteCSV(xlist, ylist);
+
+        AssetDatabase.Refresh();
+
+        xlist.Clear();
+        ylist.Clear(); 
     }
 
-    void WriteCSV()
+    private void ReadCSV()
+    {
+        // List<int> tempXList = new List<int>();
+        // List<int> tempYList = new List<int>();
+
+        Debug.Log(filename);
+        string csvData = File.ReadAllText(filename);
+
+        string[] lines = csvData.Split("\n");
+
+        string[] individualData = new string[] { };
+
+        for (int i = 0; i < lines.Length - 1; i++)
+        {
+            individualData = lines[i].Split(",");
+
+            xlist.Add(int.Parse(individualData[0]));
+            ylist.Add(int.Parse(individualData[1]));
+        }
+    }
+    private void WriteCSV(List<int> xList, List<int> yList)
     {
         try
         {
-            if(xList.Count > 0 && yList.Count > 0 )
+            //Debug.Log("X:" + xList[0] + " Y: " + yList[0]);
+
+            if (xList.Count > 0 && yList.Count > 0 )
             {
-                Debug.Log("Pass");
+                //Debug.Log("Pass");
                 string csvData = File.ReadAllText(filename);
 
                 string[] lines = csvData.Split("\n");
@@ -49,7 +71,7 @@ public class CSVUpdater : MonoBehaviour
 
                 for(int i = 0; i < xList.Count; i++)
                 {
-                    Debug.Log(xList[i].ToString() + ", " + yList[i].ToString());  
+                    //Debug.Log(xList[i].ToString() + ", " + yList[i].ToString());  
 
                     individualData = lines[i].Split(",");
                     if(individualData.Length > 0)
