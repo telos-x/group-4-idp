@@ -10,13 +10,15 @@ public class InstantSolarPower : MonoBehaviour
 
     [Header("Monthly Peak Irradiance (W/m²)")]
     [Tooltip("0→Ls0–30, 1→30–60, …, 11→330–360")]
+
+    // peak irradiance each month in northern hemisphere of Mars
     public float[] peakIrradianceByMonth = new float[12]
     {
         405f, 430f, 375f, 550f, 520f, 480f,
         405f, 300f, 700f, 215f, 250f, 350f
     };
 
-    private MartianTimeManager timeMgr;
+    public MartianTimeManager timeMgr;
 
     [Header("Output (read-only)")]
     [Tooltip("Instantaneous power output in Watts")]

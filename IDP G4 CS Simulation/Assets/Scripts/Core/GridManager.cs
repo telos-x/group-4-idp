@@ -28,8 +28,11 @@ public class GridManager : MonoBehaviour
         var consumers = nodes.Where(n => n.CurrentValue < 0).OrderBy(n => n.Priority).ToList();
 
         supply = producers.Sum(n => n.CurrentValue);
+        Debug.Log("supply: " + supply);
         demand = -consumers.Sum(n => n.CurrentValue);
+        Debug.Log("demand: " + demand);
         net = supply - demand;
+        Debug.Log("net: " + net);
 
         // dispatch into storage if excess or draw from storage if deficit
         if (net > 0)

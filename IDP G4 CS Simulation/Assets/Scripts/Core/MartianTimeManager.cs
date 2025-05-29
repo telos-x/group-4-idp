@@ -40,17 +40,22 @@ public class MartianTimeManager : MonoBehaviour
     public event Action         OnDateTick;  // sol/month/year/season changed
     public event Action<float> OnTimeChanged;
 
-    void Awake()
-    {
-        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-
     void Start()
     {
         OnTimeChanged?.Invoke(GetCurrentHour());
     }
+    void Awake()
+{
+    if (Instance == null)
+    {
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+    else if (Instance != this)
+    {
+        Destroy(gameObject);
+    }
+}
 
     void Update()
     {

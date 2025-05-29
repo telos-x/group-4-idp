@@ -6,10 +6,7 @@ public class Microreactor : MonoBehaviour, IPowerNode {
     public int Priority => 1;
     public string NodeName => "Microreactor";
     public bool isEnabled{ get; set; } = true;
-    void Awake() {
-        if (nuclearEstimator == null) 
-            nuclearEstimator = GetComponent<InstantNuclearPower>();
-    }
+
     void Update()
     {
         UpdateNode(Time.deltaTime);

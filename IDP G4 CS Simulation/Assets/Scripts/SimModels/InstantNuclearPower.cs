@@ -10,6 +10,6 @@ public class InstantNuclearPower : MonoBehaviour
     void Update()
     {
         float target = GridManager.Instance.RequiredCriticalLoad();
-        InstantNP = Mathf.MoveTowards(InstantNP, Mathf.Clamp(target, minOutput, maxOutput), rampRate * Time.deltaTime);
+        InstantNP = Mathf.MoveTowards(InstantNP, Mathf.Clamp(target, minOutput, maxOutput), rampRate * 10000 * Time.deltaTime);
     }
 }
