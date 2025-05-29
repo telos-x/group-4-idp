@@ -11,17 +11,25 @@ public class CSVUpdater : MonoBehaviour
 {
     private string filename = "Assets/Scripts/IDPGroup4Data.csv";
 
-    private List<int> xlist = new List<int>();
-    private List<int> ylist = new List<int>();
+    private List<float> xlist = new List<float>();
+    private List<float> ylist = new List<float>();
     public void UpdateCSV()
     {
         ReadCSV();
 
+        //int numbers = xlist.Count + UnityEngine.Random.Range(0, 6);
         for (int i = 0; i < xlist.Count; i++)
         {
             //xList[i] = UnityEngine.Random.Range(0, 15 + (5 * i));
-            xlist[i] = (0 + (i * 5));
-            ylist[i] = UnityEngine.Random.Range(0, 25 + (5 * i));
+            // if (i >= xlist.Count)
+            // {
+            //     xlist.Add(0 + (i * 5));
+            //     ylist.Add(UnityEngine.Random.Range(0, 25 + (5 * i)));
+            // }
+            // else
+            // {}
+                xlist[i] = (0 + (i * 5));
+                ylist[i] = UnityEngine.Random.Range(0, 25 + (5 * i));
         }
         xlist.Sort();
 
@@ -55,7 +63,7 @@ public class CSVUpdater : MonoBehaviour
             ylist.Add(int.Parse(individualData[1]));
         }
     }
-    private void WriteCSV(List<int> xList, List<int> yList)
+    private void WriteCSV(List<float> xList, List<float> yList)
     {
         try
         {
