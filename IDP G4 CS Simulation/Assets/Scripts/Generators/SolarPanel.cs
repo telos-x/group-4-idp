@@ -12,8 +12,8 @@ public class SolarPanel : MonoBehaviour, IPowerNode {
     }
     public void UpdateNode(float deltaTime)
     {
-        CurrentValue = isEnabled ? powerEstimator.InstantaneousPower : 0f;
-        Debug.Log("SolarPanel UpdateNode: CurrentValue -> " + CurrentValue);
+        CurrentValue = powerEstimator.InstantaneousPower;
+        Debug.Log("SolarPanel UpdateNode CurrentValue: " + CurrentValue);
     }
 
 }

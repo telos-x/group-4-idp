@@ -288,7 +288,6 @@ MonoBehaviour:
   gridManager: {fileID: 1429908068}
   recordInterval: 1
   timeKeeper: {fileID: 578032786}
-  martianSec: 0
 --- !u!1 &103337280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,7 +1178,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -320.21, y: -446.98}
+  m_AnchoredPosition: {x: -320, y: -446}
   m_SizeDelta: {x: 600, y: 245.96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &449942817
@@ -2426,6 +2425,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1797704756}
+  - {fileID: 1676599617}
   m_Father: {fileID: 1984760584}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &768854516
@@ -2447,7 +2447,7 @@ MonoBehaviour:
   lightPowerPerUnit: 0.3
   PressurizationValue: 0
   pressurizationPowerPerUnit: 2
-  timeMgr: {fileID: 578032786}
+  timeMgr: {fileID: 1676599618}
   colonyMgr: {fileID: 1797704757}
 --- !u!1 &843571386
 GameObject:
@@ -3809,7 +3809,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1136131804}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1136131806}
+        m_TargetAssemblyTypeName: PanelToggle, Assembly-CSharp
+        m_MethodName: OpenPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1136131804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4617,7 +4629,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1503074623}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1503074625}
+        m_TargetAssemblyTypeName: PanelToggle, Assembly-CSharp
+        m_MethodName: OpenPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1503074623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4888,7 +4912,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1636133680}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1636133682}
+        m_TargetAssemblyTypeName: PanelToggle, Assembly-CSharp
+        m_MethodName: OpenPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1636133680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5023,7 +5059,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1650933060}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1650933062}
+        m_TargetAssemblyTypeName: PanelToggle, Assembly-CSharp
+        m_MethodName: OpenPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1650933060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5120,6 +5168,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerEstimator: {fileID: 138205883}
+--- !u!1 &1676599616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1676599617}
+  - component: {fileID: 1676599618}
+  m_Layer: 0
+  m_Name: HousingTimeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1676599617
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676599616}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 768854515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1676599618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676599616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04bea306494ea7b448472129059751cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startSol: 0
+  startYear: 0
+  timeScale: 60
 --- !u!1 &1693291399
 GameObject:
   m_ObjectHideFlags: 0
@@ -6864,8 +6959,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1429908067}
-  - {fileID: 70159519}
   - {fileID: 1005436830}
+  - {fileID: 70159519}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2045675117

@@ -82,7 +82,7 @@ public class GridManager : MonoBehaviour
                     float returnAmount = Mathf.Min(c.CurrentValue, net);
                     net -= returnAmount;
                     c.isEnabled = true;
-                }  
+                }
                 if (net <= 0) break;
             }
         }
@@ -91,7 +91,17 @@ public class GridManager : MonoBehaviour
 
     public float RequiredCriticalLoad()
     {
-        return nodes.Where(n => n.CurrentValue < 0 && n.Priority <= 6)
-                    .Sum(n => -n.CurrentValue);
+        return demand;
+    }
+    public bool IsStorageFull()
+    {
+        if (storageSoC == storageCapacity)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

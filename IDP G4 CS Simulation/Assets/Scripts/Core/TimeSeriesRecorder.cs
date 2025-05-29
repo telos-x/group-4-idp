@@ -53,7 +53,7 @@ public class TimeSeriesRecorder : MonoBehaviour
 
     }
 
-    void LateUpdate()
+    void Update()
     {
         double secs = timeKeeper.GetMartianSeconds();
         /*Debug.Log("TSRUpdate: supply is " + gridManager.supply);

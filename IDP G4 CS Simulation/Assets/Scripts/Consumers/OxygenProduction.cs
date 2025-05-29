@@ -11,7 +11,7 @@ public class OxygenProduction : MonoBehaviour, IPowerNode {
 
     void Update()
     {
-        Debug.Log("OxygenProduction CurrentValue: " + CurrentValue);
+        // Debug.Log("OxygenProduction CurrentValue: " + CurrentValue);
         UpdateNode(Time.deltaTime);
     }
 
