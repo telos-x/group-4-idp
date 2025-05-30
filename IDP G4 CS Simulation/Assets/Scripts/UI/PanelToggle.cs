@@ -5,14 +5,20 @@ using UnityEngine;
 public class PanelToggle : MonoBehaviour {
     
     [SerializeField] public GameObject Panel;
+    [SerializeField] public GameObject PreviousPanel;
+
 
     public void OpenPanel()
     {
         if (Panel != null)
         {
-            bool isActive = Panel.activeSelf;
+            bool isSelfActive = Panel.activeSelf;
+            bool isFormerActive = PreviousPanel.activeSelf;
 
-            Panel.SetActive(!isActive);
+
+            Panel.SetActive(!isSelfActive);
+            PreviousPanel.SetActive(!isFormerActive);
+
         }
     }
 }
